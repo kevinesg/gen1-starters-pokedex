@@ -1,6 +1,8 @@
 # Gen 1 Starters Pokedex
 Object detection model for Gen 1 Pokemon starters. Final output is a Tensorflow Lite mobile app (Android only) but there's also a PC version.
 
+Take note that I didn't include the raw images dataset, so you can't run `build_records.py` because the xml files won't be able to locate the images. But I included the resulting TFRecord files as if you were able to create it using `build_records.py`.
+
 I will explain the step-by-step procedure I used from gathering images up to creating the TFLite mobile app. The steps are transferrable, if you want to apply it to your own dataset. Feel free to change directories of files but make sure to update the directories inside `config/C.py`.
 
 ## Contents
