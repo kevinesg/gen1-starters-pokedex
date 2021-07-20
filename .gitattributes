@@ -1,4 +1,0 @@
-*.v2 filter=lfs diff=lfs merge=lfs -text
-events.out.tfevents.1626251280.KEVIN-PC.28480.1550.v2 filter=lfs diff=lfs merge=lfs -text
-*xml filter=lfs diff=lfs merge=lfs -text
-*.xml filter=lfs diff=lfs merge=lfs -text
