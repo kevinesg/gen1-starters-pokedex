@@ -3,7 +3,7 @@ Object detection model for Gen 1 Pokemon starters. Final output is a Tensorflow 
 
 Take note that I didn't include the raw images dataset, so you can't run `build_records.py` because the xml files won't be able to locate the images. But I included the resulting TFRecord files as if you were able to create it using `build_records.py`.
 
-I will explain the step-by-step procedure I used from gathering images up to creating the TFLite mobile app. The steps are transferrable, if you want to apply it to your own dataset. Feel free to change directories of files but make sure to update the directories inside `config/C.py`.
+I will explain the steps I used from gathering images up to creating the TFLite mobile app. The steps are transferrable, if you want to apply it to your own dataset. Feel free to change directories of files but make sure to update the directories inside `config/C.py`.
 
 ## Contents
 1. Generate dataset
@@ -18,7 +18,7 @@ I will explain the step-by-step procedure I used from gathering images up to cre
 #
 The two main steps in generating your own dataset is (1) gathering images and (2) creating bounding boxes for each object within each image.
 
-Obviously you can use your own method of gathering images from the web, but in this project I used [Image Dataset Tool](https://pypi.org/project/idt/).
+You can use your own method of gathering images from the web. In this project I used [Image Dataset Tool](https://pypi.org/project/idt/).
 
 Then I used [labelImg](https://pypi.org/project/labelImg/) to create the bounding boxes for each image. I attached an image below on how it looks like when using labelImg.
 
@@ -30,7 +30,7 @@ I chose the Pascal VOC format and the output is one xml file per image. After an
 #
 We need to create TFRecords files because the Tensorflow Object Detection library requires this format. It cannot read raw images and xml files.
 
-To create TFRecord files containing our dataset, run `build_records.py`. Feel free to change directories as you wish. All directories are located at `config/C.py`.
+To create TFRecord files containing our dataset, run `build_records.py` (but in this project you can't run it because the raw images are missing). Feel free to change directories as you wish. All directories are located at `config/C.py`.
 
 This will generate train and test TFRecord files.
 
@@ -138,6 +138,8 @@ Now you can run `predict_vid.py`. Note that this requires the correct path of th
 https://user-images.githubusercontent.com/60960803/126135978-024f2478-f335-4a9b-81d0-45923a23806a.mp4
 
 Here is a short clip showing how it performs on my PC. (Press Q to close the video and stop `predict_vid.py`)
+
+I also included the APK file if you like to try it on your Android phone.
 
 #
 
