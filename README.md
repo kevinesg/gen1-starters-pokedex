@@ -36,7 +36,7 @@ This will generate train and test TFRecord files.
 
 ### 3. Prepare files needed before model training
 #
-At this point, you should choose a pre-trained model you will use for the transfer learning part. Check the available models at [TF2 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md). For this project, I tried two different models-- SSD MobileNet V2 FPNLite 640x640 and SSD MobileNet v2 FPNLite 320x320. I used SSD for faster training, and I chose the MobileNet variant for faster inference time (at the expense of slight loss in accuracy). My mobile phone is a 4-year-old model so I have to use a smaller and faster model.
+At this point, you should choose a pre-trained model you will use for the transfer learning part. Check the available models at [TF2 Detection Model Zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md). For this project, I tried several models but only two gave good results (SSD MobileNet V2 FPNLite 640x640 and SSD MobileNet v2 FPNLite 320x320). I used SSD for faster training, and I chose the MobileNet variant for faster inference time (at the expense of slight loss in accuracy). The other models I chose are faster and smaller, but the losses kept increasing so I dropped them. My mobile phone is a 4-year-old model so I have to use a smaller and faster model.
 
 After choosing a pre-trained model, download it and extract the files. Place it wherever you like (and don't forget to change the directory at `config/C.py`). For this project, I saved it at `model/pre-trained/`. Next, we need to configure `pipeline.config` to our own model and directories. I copied the `pipeline.config` file into `model/config/` and also renamed it to the pre-trained model name.
 
@@ -121,7 +121,7 @@ Here are some screenshots using the TFLite app I compiled:
 
 ![image](https://user-images.githubusercontent.com/60960803/126131538-558165e5-60c0-4251-a515-57169da1465d.png)
 
-As we can see, it takes around half a second to identify and locate the Pokemon. But this is partly due to my 4-year-old phone. If you use a faster phone, it can take as fast as 0.1 sec.
+As we can see, it takes around half a second to identify and locate the Pokemon. But this is partly due to my 4-year-old phone. If you use a faster phone, it can take as fast as 0.1 sec. I tried both models and SSD MobileNet v2 FPNLite 320x320 is faster (as expected, because it has lower resolution) so I chose that one.
 
 #
 
